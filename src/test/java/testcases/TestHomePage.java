@@ -24,12 +24,12 @@ public class TestHomePage extends DriverSetup {
         homepage.loadHomePage();
 
     }
-    @Test
+    @Test(description = "Test title")
     public void TestTitle(){
         Assert.assertEquals(getDriver().getTitle(),homepage.title);
     }
 
-    @Test
+    @Test(description = "Test Login-Signup button on the Home page")
     public void TestSignupButton(){
 //        homepage.addScreenshot("Home page");
         homepage.clickOnElement(homepage.login_signup_btn);

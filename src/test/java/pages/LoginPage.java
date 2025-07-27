@@ -14,13 +14,12 @@ public class LoginPage extends BasePage {
     public By login_email = By.xpath("//input[@id='username']");
     public By login_btn = By.xpath("//input[@name='login']");
 
-//    public By error_msg = By.xpath("//p[normalize-space()='Your email or password is incorrect!']");
-//
-//    public String user_email = "";
-//    public String user_password = "1234";
+    public By my_account = By.xpath("//div[@class='login-links']//a[@title='আমার অ্যাকাউন্ট'][contains(text(),'আমার অ্যাকাউন্ট')]");
+    public By logout_btn = By.xpath("//a[contains(text(),'লগআউট')]");
 
-//    public By signupWithGoogle = By.xpath("//button[normalize-space()='Google']");
-
-
+    public By empty_user = By.xpath("//li[contains(text(),'ইউজার নাম প্রয়োজন')]");
+    public By empty_pass = By.xpath("//div[@id='main-module-container']//li[1]");
+    public By empty_both = By.xpath("//li[contains(text(),'ইউজার নাম প্রয়োজন')]");
+    public By invalid_both = By.xpath("//li[contains(text(),'Unknown email address. Check again or try your use')]");
 
 }

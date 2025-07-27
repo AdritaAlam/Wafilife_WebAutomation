@@ -18,7 +18,4 @@ public class SignupPage extends BasePage {
     public void loadSignupPage(){
         loadPage(url);
     }
-
-//    writteOnElement(By.xpath("//input[@data-qa='login-email']"));
-//    email.writeOnElement("//input[@data-qa='login-email']","Bangladesh")
 }

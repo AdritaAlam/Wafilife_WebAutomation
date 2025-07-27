@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","47684","testDiffActions","All Test Suite","Sun Jul 27 21:10:02 BDT 2025","passed","Sun Jul 27 21:10:49 BDT 2025","testcases.TestActions","D:/CSE/SQA/Web Automation Projects/Wafilife/src/test/java/testcases","testcases.TestActions","testDiffActions"
+"","3130","TestSignupButton","All Test Suite","Sun Jul 27 21:09:53 BDT 2025","passed","Sun Jul 27 21:09:56 BDT 2025","testcases.TestHomePage","D:/CSE/SQA/Web Automation Projects/Wafilife/src/test/java/testcases","testcases.TestHomePage","TestSignupButton"
+"","20","TestTitle","All Test Suite","Sun Jul 27 21:09:54 BDT 2025","passed","Sun Jul 27 21:09:54 BDT 2025","testcases.TestHomePage","D:/CSE/SQA/Web Automation Projects/Wafilife/src/test/java/testcases","testcases.TestHomePage","TestTitle"
+"","16474","TestLoginWithValidCredentials","All Test Suite","Sun Jul 27 21:10:21 BDT 2025","passed","Sun Jul 27 21:10:38 BDT 2025","testcases.TestLoginPage","D:/CSE/SQA/Web Automation Projects/Wafilife/src/test/java/testcases","testcases.TestLoginPage","TestLoginWithValidCredentials"
