@@ -1,6 +1,7 @@
 package testcases;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -29,7 +30,7 @@ public class TestActions extends DriverSetup {
     }
 
     @Test
-    public void testDiffActions() {
+    public void testDiffActions() throws InterruptedException {
 
         loginpage.writeOnElement(loginpage.login_email,"adritaalam.prima@gmail.com");
         loginpage.writeOnElement(loginpage.password,"********");
@@ -39,16 +40,9 @@ public class TestActions extends DriverSetup {
         Assert.assertFalse(loginpage.isVisible(loginpage.login_btn));
 
 
-
-
-
-//        driver.get("https://rahulshettyacademy.com/AutomationPractice/");
-
-//        Actions actions = new Actions(driver);
         Actions actions = new Actions(getDriver());
 
         homePage.clickOnElement(By.xpath("//span[contains(text(),'লেখক')]"));
-
 
 
         // SCROLL
@@ -67,20 +61,43 @@ public class TestActions extends DriverSetup {
         billinfo.writeOnElement(billinfo.user_name,"Prima");
         billinfo.writeOnElement(billinfo.phone_number,"01733331392");
         billinfo.writeOnElement(billinfo.email,"adritaalam.prima@gmail.com");
-//        WebElement selectElement = getDriver().findElement(By.id("select2-billing_state-container"));
-//        Select select = new Select(selectElement);
-////        billinfo.writeOnElement(billinfo.combo,"Raj");
-//        select.selectByValue("Rajshahi");
-////        actions.scrollByAmount(0,1000).build().perform();
-//
-////        billinfo.writeOnElement(billinfo.district,"adritaalam.prima@gmail.com");
-//        billinfo.writeOnElement(billinfo.area,"********");
-////        billinfo.writeOnElement(billinfo.address,);
 
-//        billinfo.addScreenshot("Login page");
 
-//        actions.scrollToElement().build().perform();
-//        Thread.sleep(3000);
+
+        // Click dropdown
+        getDriver().findElement(By.id("select2-billing_state-container")).click();
+
+// Type in the search box inside Select2
+        WebElement districtSearchBox = getDriver().findElement(By.xpath("//input[@class='select2-search__field']"));
+        districtSearchBox.sendKeys("Rajshahi");
+
+// Press Enter or click the option
+        districtSearchBox.sendKeys(Keys.ENTER);
+
+
+
+// Wait until old area dropdown is removed/reloaded
+        WebDriverWait wait2 = new WebDriverWait(getDriver(), Duration.ofSeconds(15));
+        wait2.until(ExpectedConditions.stalenessOf(getDriver().findElement(By.id("billing_area"))));
+
+// Wait for new area dropdown to appear and contain Rajshahi City
+        wait2.until(ExpectedConditions.presenceOfElementLocated(By.id("billing_area")));
+        wait2.until(ExpectedConditions.textToBePresentInElementLocated(By.id("billing_area"), "রাজশাহী সিটি"));
+
+// Select Rajshahi City
+        Select area = new Select(getDriver().findElement(By.id("billing_area")));
+        area.selectByVisibleText("রাজশাহী সিটি");
+
+        Thread.sleep(4000);
+
+
+        billinfo.writeOnElement(billinfo.address,"Kajla");
+        WebElement radioButton = getDriver().findElement(By.xpath("//input[@id='payment_method_bkash']"));
+        System.out.println("Bkash payment(Before clicked): "+ radioButton.isSelected());
+        radioButton.click();
+        Thread.sleep(3000);
+        System.out.println("Bkash payment (After clicked): "+ radioButton.isSelected());
+
 
 
     }
