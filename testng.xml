@@ -17,6 +17,7 @@
             <class name="testcases.TestLoginPage">
                 <methods>
                     <include name="TestLoginWithValidCredentials"/>
+                    <include name="TestLoginWithInvalidCredentialsWithDataDriven"/>
                 </methods>
             </class>
         </classes>

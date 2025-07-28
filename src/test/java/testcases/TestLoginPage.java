@@ -12,7 +12,6 @@ import utilities.DataSet;
 import utilities.DriverSetup;
 
 public class TestLoginPage extends DriverSetup {
-//    By iframe_section = By.xpath("//a[contains(text(),'→')]");
 
     HomePage homePage = new HomePage();
     LoginPage loginpage = new LoginPage();
@@ -33,8 +32,9 @@ public class TestLoginPage extends DriverSetup {
         Assert.assertTrue(homePage.isVisible(homePage.logout_btn));
         Assert.assertFalse(loginpage.isVisible(loginpage.login_btn));
     }
-    @Test(dataProvider = "invalidUserCredentials", dataProviderClass = DataSet.class)
-    public void TestLoginWithInvalidCredentials(String email, String password, String error_msg,String validation_msg){
+
+    @Test(description = "Test Login-page with invalid credentials using Dataset", dataProvider = "invalidUserCredentials(DataDriven)", dataProviderClass = DataSet.class)
+    public void TestLoginWithInvalidCredentialsWithDataDriven(String email, String password, String error_msg,String validation_msg){
         loginpage.writeOnElement(loginpage.login_email,email);
         loginpage.writeOnElement(loginpage.password,password);
         loginpage.clickOnElement(loginpage.login_btn);
@@ -45,7 +45,7 @@ public class TestLoginPage extends DriverSetup {
         if (password.isEmpty()){
             Assert.assertEquals(loginpage.getElement(loginpage.password).getAttribute("textContent"),validation_msg);
         }
+        homePage.addScreenshot("Error msg for Invalid Credentials");
 
     }
-
 }

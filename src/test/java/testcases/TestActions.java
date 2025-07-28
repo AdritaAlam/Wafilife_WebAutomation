@@ -31,7 +31,7 @@ public class TestActions extends DriverSetup {
 
     }
 
-    @Test(description = "Test Login-Signup button on the Home page")
+    @Test(description = "Test Login-Signup and different actions after login")
     public void testDiffActions() throws InterruptedException {
 
         homePage.addScreenshot("Login page");
