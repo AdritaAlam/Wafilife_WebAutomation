@@ -35,8 +35,8 @@ public class TestActions extends DriverSetup {
     public void testDiffActions() throws InterruptedException {
 
         homePage.addScreenshot("Login page");
-        loginpage.writeOnElement(loginpage.login_email,"adritaalam.prima@gmail.com");
-        loginpage.writeOnElement(loginpage.password,"********");
+        loginpage.writeOnElement(loginpage.login_email,"your email");
+        loginpage.writeOnElement(loginpage.password,"password");
         loginpage.clickOnElement(loginpage.login_btn);
         homePage.addScreenshot("Home page");
         Assert.assertTrue(homePage.isVisible(homePage.logout_btn));
@@ -92,20 +92,22 @@ public class TestActions extends DriverSetup {
         // Select Rajshahi City
         Select area = new Select(getDriver().findElement(By.id("billing_area")));
         area.selectByVisibleText("রাজশাহী সিটি");
-        Thread.sleep(4000);
+        Thread.sleep(2000);
 
 
-        billinfo.writeOnElement(billinfo.address,"Kajla");
+        billinfo.writeOnElement(billinfo.address,"*******");
         WebElement radioButton = getDriver().findElement(By.xpath("//input[@id='payment_method_bkash']"));
         System.out.println("Bkash payment(Before clicked): "+ radioButton.isSelected());
         radioButton.click();
-        Thread.sleep(3000);
+        Thread.sleep(7000);
         System.out.println("Bkash payment (After clicked): "+ radioButton.isSelected());
         homePage.addScreenshot("Billing info");
+        Thread.sleep(4000);
 
         //logout
         actions.scrollByAmount(0,-1000);
         loginpage.clickOnElement(loginpage.my_account);
+        Thread.sleep(4000);
         loginpage.clickOnElement(loginpage.logout_btn);
         homePage.addScreenshot("Logout(After)");
 

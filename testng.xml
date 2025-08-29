@@ -3,21 +3,22 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="D:/CSE/SQA/Web Automation Projects/Wafilife/src/test/java/testcases" parallel="true">
         <classes>
-            <class name="testcases.TestActions">
-                <methods>
-                    <include name="testDiffActions"/>
-                </methods>
-            </class>
+
             <class name="testcases.TestHomePage">
                 <methods>
-                    <include name="TestTitle"/>
-                    <include name="TestSignupButton"/>
+                    <exclude name="TestTitle"/>
+                    <exclude name="TestSignupButton"/>
                 </methods>
             </class>
             <class name="testcases.TestLoginPage">
                 <methods>
-                    <include name="TestLoginWithValidCredentials"/>
-                    <include name="TestLoginWithInvalidCredentialsWithDataDriven"/>
+                    <exclude name="TestLoginWithValidCredentials"/>
+                    <exclude name="TestLoginWithInvalidCredentialsWithDataDriven"/>
+                </methods>
+            </class>
+            <class name="testcases.TestActions">
+                <methods>
+                    <include name="testDiffActions"/>
                 </methods>
             </class>
         </classes>

@@ -25,8 +25,8 @@ public class TestLoginPage extends DriverSetup {
     @Test(description = "Test Login-page with valid credentials")
     public void TestLoginWithValidCredentials() {
 
-        loginpage.writeOnElement(loginpage.login_email,"adritaalam.prima@gmail.com");
-        loginpage.writeOnElement(loginpage.password,"********");
+        loginpage.writeOnElement(loginpage.login_email,"Your email");
+        loginpage.writeOnElement(loginpage.password,"Password");
         loginpage.clickOnElement(loginpage.login_btn);
         homePage.addScreenshot("Login page");
         Assert.assertTrue(homePage.isVisible(homePage.logout_btn));
